@@ -1,7 +1,3 @@
-/**
- * Created by toddg on 5/13/15.
- */
-
 var waitForRender = function (callback) {
     window.setTimeout(function () {
         callback();
