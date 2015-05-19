@@ -5,3 +5,5 @@ browser-bundle.js
 npm-debug.log
 *~
 lib/
+.idea/
+examples/leaderboard/.meteor

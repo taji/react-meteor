@@ -8,10 +8,12 @@ Package.describe({
   documentation: "README.md"
 });
 
+// JTG TODO: Should we update this to the latest version of React (0.13.3)?
+
 var reactVersion = "0.13.0";
 
 Npm.depends({
-  "react": reactVersion,
+  "react": reactVersion
 });
 
 Package.registerBuildPlugin({

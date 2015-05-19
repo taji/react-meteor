@@ -5,6 +5,12 @@
  * @jsx React.DOM
  */
 
+MyApp = {};
+
+// JTG: Should we replace classSet this with JedWatson/classnames as per here?:
+//
+// https://facebook.github.io/react/docs/class-name-manipulation.html
+//
 var cx = React.addons.classSet;
 
 // Set up a collection to contain player information. On the server,
@@ -17,7 +23,7 @@ Meteor.methods({
   }
 });
 
-var Leaderboard = ReactMeteor.createClass({
+var Leaderboard = MyApp.Leaderboard = ReactMeteor.createClass({
   // Specifying a templateName property allows the component to be
   // interpolated into a Blaze template just like any other template:
   // {{> Leaderboard x=1 y=2}}. This corresponds to the JSX expression
