@@ -1,3 +1,14 @@
+react-meteor (with tests)
+=========================
+
+This is a fork of Ben Newman's react-meteor package.  The primary difference is that I've added jasmine regression
+tests to the leaderboard app in the examples folder.  There are two set of tests, both testing the same thing but using two different approaches:  
+
+  *  The Leaderboard.spec tests make use of the DOM and JQuery to trigger events and verify expectations. 
+  *  The ReactLeaderboard.js only interacts with the Leaderboard React component (and it's respective descendent components).  It triggers the same events and verifies the same expectations but does so against the respective React events, props and states.
+
+See the tests folder under meteor-react/examples/ for more details.
+
 react-meteor
 ============
 
