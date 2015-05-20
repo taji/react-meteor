@@ -1,4 +1,4 @@
-react-meteor (with tests)
+react-meteor (with example tests)
 =========================
 
 This is a fork of Ben Newman's react-meteor package.  The primary difference is that I've added jasmine regression
