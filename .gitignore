@@ -6,4 +6,4 @@ npm-debug.log
 *~
 lib/
 .idea/
-examples/leaderboard/.meteor
+examples/leaderboard/.meteor/local

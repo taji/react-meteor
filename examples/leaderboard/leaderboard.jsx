@@ -7,11 +7,7 @@
 
 MyApp = {};
 
-// JTG: Should we replace classSet this with JedWatson/classnames as per here?:
-//
-// https://facebook.github.io/react/docs/class-name-manipulation.html
-//
-var cx = React.addons.classSet;
+var cx = classNames;
 
 // Set up a collection to contain player information. On the server,
 // it is backed by a MongoDB collection named "players".

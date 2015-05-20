@@ -42,8 +42,8 @@ describe("React Tests", function () {
 
             // select the Grace Hopper player.
             React.addons.TestUtils.Simulate.click(players[0]);
-            // wait for the click to update the state and render the react element...
 
+            // wait for the click to update the state and render the react element...
             waitForRender(function () {
                 // ... now click the add ponts button and wait again...
                 React.addons.TestUtils.Simulate.click(button);
@@ -51,8 +51,8 @@ describe("React Tests", function () {
                     // ... and verify score was incremented.
                     var graceFinalPoints = players[0].props.children[1].props.children;
                     expect(graceFinalPoints).toBe(graceInitialPoints + 5);
+                    done();
                 });
-                done();
             });
         });
 

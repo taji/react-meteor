@@ -7,3 +7,7 @@ meteor-platform
 accounts-password
 accounts-ui
 reactjs:react
+sanjo:jasmine
+velocity:html-reporter
+velocity:console-reporter
+maxharris9:classnames
