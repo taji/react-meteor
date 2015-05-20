@@ -1,8 +1,7 @@
 react-meteor (with example tests)
 =========================
 
-This is a fork of Ben Newman's react-meteor package.  The primary difference is that I've added jasmine client integration
-tests to the react-meteor leaderboard app in the examples folder.  There are two set of tests, both testing the same thing but using two different approaches:  
+This is a fork of Ben Newman's react-meteor package (https://github.com/reactjs/react-meteor).  The primary difference is that I've added jasmine client integration tests to the react-meteor leaderboard app in the examples folder.  There are two set of tests, both testing the same thing but using two different approaches:  
 
   *  The Leaderboard.spec tests make use of the DOM and JQuery to trigger events and verify expectations. 
   *  The ReactLeaderboard.js tests only interact with the Leaderboard React component (and it's respective descendent components).  These tests trigger the same events and verify the same expectations but do so against the respective React events, props and states.
