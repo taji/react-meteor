@@ -30,56 +30,60 @@ var unselectPlayer = function (callback) {
     }
 };
 
-describe("Selecting Grace Hopper", function () {
-    beforeEach(function (done) {
-        Meteor.autorun(function (c) {
-            var grace = Players.findOne({name: "Grace Hopper"});
-            if (grace) {
-                c.stop();
-                selectGraceHopper(done);
-            }
-        })
+describe("DOM Tests", function () {
+
+    describe("DOM : Selecting Grace Hopper", function () {
+        beforeEach(function (done) {
+            Meteor.autorun(function (c) {
+                var grace = Players.findOne({name: "Grace Hopper"});
+                if (grace) {
+                    c.stop();
+                    selectGraceHopper(done);
+                }
+            })
+        });
+
+        afterEach(function (done) {
+            unselectPlayer(done);
+        });
+
+        it("should show Grace above the give points button", function () {
+            expect($("div.details > div.name").html()).toEqual("Grace Hopper");
+        });
+
+
+        it("should highlight Grace's name", function () {
+            var parentDiv = $("span.name:contains(Grace Hopper)").parent();
+            expect(parentDiv.hasClass("selected")).toBe(true);
+        });
     });
 
-    afterEach(function (done) {
-       unselectPlayer(done);
+    describe("DOM : Point Assignment", function () {
+        beforeEach(function (done) {
+            selectGraceHopper(done);
+        });
+
+        afterEach(function (done) {
+            unselectPlayer(done);
+        });
+
+        it("should give a player 5 points when they are selected and the button is pressed", function () {
+            var graceInitialPoints = Players.findOne({name: "Grace Hopper"}).score;
+            $("input:button").click();
+            expect(Players.findOne({name: "Grace Hopper"}).score).toBe(graceInitialPoints + 5);
+        });
     });
 
-    it("should show Grace above the give points button", function () {
-        expect($("div.details > div.name").html()).toEqual("Grace Hopper");
+    describe("DOM : Player Ordering", function () {
+        beforeEach(function (done) {
+            waitForRender(done);
+        });
+
+        it("should result in a list where the first player has as many or more points than the second player", function () {
+            var firstScore = Number($('.player > .score')[0].innerHTML);
+            var secondScore = Number($('.player > .score')[1].innerHTML);
+            expect(firstScore >= secondScore);
+        });
     });
 
-
-    it("should highlight Grace's name", function () {
-        var parentDiv = $("span.name:contains(Grace Hopper)").parent();
-        expect(parentDiv.hasClass("selected")).toBe(true);
-    });
-});
-
-describe("Point Assignment", function () {
-    beforeEach(function (done) {
-        selectGraceHopper(done);
-    });
-
-    afterEach(function (done) {
-        unselectPlayer(done);
-    });
-
-    it("should give a player 5 points when they are selected and the button is pressed", function () {
-        var graceInitialPoints = Players.findOne({name: "Grace Hopper"}).score;
-        $("input:button").click();
-        expect(Players.findOne({name: "Grace Hopper"}).score).toBe(graceInitialPoints + 5);
-    });
-});
-
-describe("Player Ordering", function () {
-    beforeEach(function (done) {
-        waitForRender(done);
-    });
-
-    it("should result in a list where the first player has as many or more points than the second player", function () {
-         var firstScore = Number($('.player > .score')[0].innerHTML);
-         var secondScore = Number($('.player > .score')[1].innerHTML);
-         expect(firstScore >= secondScore);
-    });
 });
