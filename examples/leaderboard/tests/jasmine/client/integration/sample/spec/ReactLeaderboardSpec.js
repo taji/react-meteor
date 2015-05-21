@@ -1,5 +1,5 @@
 var waitForRender = function (callback) {
-    window.setTimeout(function () {
+    Meteor.setTimeout(function () {
         callback();
     }, 200);
 };
